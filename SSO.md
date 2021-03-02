@@ -22,7 +22,7 @@ randomString=$(head /dev/urandom | tr -dc a-z0-9 | head -c 4 ; echo '')
 ocOpenidSecret="openid-client-secret-${randomString}"
 
 wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.1/openshift-client-linux-4.3.1.tar.gz
-wget https://raw.githubusercontent.com/Nexon-Asia-Pacific-Pty-Ltd/aro-arm/main/oidcCR.yaml?token=AJGZCORBPY72EERVZCTROTTAI4K4W
+wget https://raw.githubusercontent.com/Nexon-Asia-Pacific-Pty-Ltd/aro-arm/main/oidcCR.yaml
 tar -xf openshift-client-linux-4.3.1.tar.gz
 ./oc login $apiServer -u kubeadmin -p $kubelogin --insecure-skip-tls-verify=true
 ./oc create secret generic $ocOpenidSecret --from-literal=clientSecret=$clientSecret -n openshift-config
